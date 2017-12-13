@@ -1,2 +1,2 @@
 # fishbone
-HTML canvas drag and drop fishbon diagram.
+HTML canvas drag and drop fishbone diagram.
