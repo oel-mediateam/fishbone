@@ -459,6 +459,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ove
 		var textboxes = [self.textbox1, self.textbox2, self.textbox3];
 		var totalCorrect = 0;
 		var numCorrect = 0;
+		var completed = false;
 		var originX = 0;
 		var originY = 0;
 		var hitAreaWidth = 475;
@@ -592,8 +593,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ove
 		
 			if ( numCorrect == totalCorrect ) {
 				
-				self.doneMsg_mc.visible = true;
-				self.doneMsg_mc.ok_btn.on( "click", hide );
+				completed = true;
 				
 				for ( var i in causeDragables ) {
 					
@@ -636,6 +636,15 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ove
 		function hide( evt ) {
 			
 			evt.target.parent.visible = false;
+			
+			if ( completed ) {
+				
+				self.doneMsg_mc.visible = true;
+				self.doneMsg_mc.ok_btn.on( "click", function() {
+					self.doneMsg_mc.visible = false;
+				} );
+				
+			}
 			
 		}
 	}
